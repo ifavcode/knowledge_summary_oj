@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.guet.ksmvcmain.mapper.UserInfoMapper">
+
+    <resultMap id="BaseResultMap" type="cn.guet.ksmvcmain.entity.vo.UserInfo">
+            <id property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="userAddr" column="user_addr" jdbcType="VARCHAR"/>
+            <result property="userSex" column="user_sex" jdbcType="CHAR"/>
+            <result property="userPhone" column="user_phone" jdbcType="VARCHAR"/>
+            <result property="ipAddr" column="ip_addr" jdbcType="VARCHAR"/>
+            <result property="userSchool" column="user_school" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        user_id,user_addr,user_sex,
+        user_phone,ip_addr,user_school
+    </sql>
+</mapper>

@@ -1,0 +1,29 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    active: dev
+  application:
+    name: @artifactId@
+  cloud:
+    nacos:
+      discovery:
+        server-addr: @nacos.serverAddr@
+        group: ${spring.profiles.active}
+    gateway:
+      routes:
+        - id: after_route
+          uri: lb://ks-mvc-main
+          predicates:
+            - Path=/mvc/**
+          filters:
+            - StripPrefix=1
+        - id: flux_route
+          uri: lb://ks-flux-main
+          predicates:
+            - Path=/flux/**
+          filters:
+            - StripPrefix=1
+      httpclient:
+        connect-timeout: 60000
+        response-timeout: 60000

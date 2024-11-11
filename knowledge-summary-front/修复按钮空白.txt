@@ -1,0 +1,11 @@
+TaiwindCSS安装包里找透明按钮样式，删除掉就可以了。
+node_modules/tailwindcss/lib/css/preflight.css
+删除190-197行
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button; /* 1 */
+  background-color: transparent; /* 2 */
+  background-image: none; /* 2 */
+}

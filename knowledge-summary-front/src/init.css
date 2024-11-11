@@ -1,0 +1,170 @@
+@charset "UTF-8";
+:root {
+  --primary-color: #3f95fd;
+  --ghost-primary-color: #ebf2fd;
+  --user-admin-color: #fb7299;
+  --code-font-size: 14px;
+  --code-font-style: 14px;
+}
+
+:root body {
+  background: #fcfeff;
+}
+
+:root table tbody tr {
+  overflow-x: auto;
+  width: 200px;
+}
+
+:root table tbody tr:nth-child(odd) {
+  background: #fafafc;
+}
+
+:root table tbody tr:hover {
+  background: #f7f7fa;
+}
+
+:root table tbody th {
+  @apply border-b;
+  @apply bg-primary-color;
+  @apply px-2;
+  @apply py-3;
+  @apply text-base;
+  @apply text-white;
+  min-width: 100px;
+  text-align: left;
+  font-weight: normal;
+}
+
+:root table tbody td {
+  @apply border-b;
+  @apply border-gray-200;
+  @apply px-2;
+  @apply py-3;
+  min-width: 100px;
+  text-align: left;
+}
+
+:root ol {
+  list-style: decimal;
+}
+
+pre,
+code {
+  background: #f8f8f8;
+}
+
+pre > code {
+  background: none;
+  line-height: 1.5;
+  color: black;
+  text-align: left;
+  white-space: pre-wrap;
+  word-spacing: normal;
+  word-break: normal;
+  tab-size: 4;
+  hyphens: none;
+}
+
+pre {
+  position: relative;
+  padding: rem(5px);
+}
+
+code {
+  color: #c92a2a;
+  font-size: rem(14px);
+  font-size: var(--code-font-size) !important;
+}
+
+[data-syntax-hl-show-line-number] pre.line-numbers > code {
+  white-space: pre;
+}
+
+.line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  /* Same as .prism’s padding-top */
+  background: rgba(153, 122, 102, 0.08);
+  background: linear-gradient(to right, rgba(153, 122, 102, 0.1) 70%, rgba(153, 122, 102, 0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+.sample > .toolbar {
+  right: 0.9375em !important;
+  top: 3.7875em !important;
+}
+
+.toolbar {
+  position: absolute;
+  white-space: no-wrap;
+  right: 0 !important;
+  top: 0 !important;
+  padding: rem(5px) 0;
+  opacity: 1 !important;
+  background: rgba(248, 248, 248, 0.8);
+  font-family: "Open Sans", "Seravek", "Segoe UI", "Verdana", "PingFang SC", "Hiragino Sans GB", "Lantinghei SC", "Microsoft Yahei", "WenQuanYi Micro Hei", "sans";
+  pointer-events: all;
+  user-select: none;
+}
+
+.toolbar-item a {
+  font-size: large !important;
+  border-radius: 0px !important;
+  background: none !important;
+}
+
+[data-syntax-hl-show-line-number] pre {
+  padding-left: 3.8em;
+  counter-reset: linenumber;
+}
+
+[data-syntax-hl-show-line-number] pre > code {
+  position: relative;
+}
+
+[data-syntax-hl-show-line-number] .line-numbers-rows {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  font-size: 100%;
+  left: -3.8em;
+  width: 3em;
+  letter-spacing: -1px;
+  user-select: none;
+}
+
+[data-syntax-hl-show-line-number] .line-numbers-rows span {
+  pointer-events: none;
+  display: block;
+  counter-increment: linenumber;
+}
+
+[data-syntax-hl-show-line-number] .line-numbers-rows span:before {
+  content: counter(linenumber);
+  color: #ddd;
+  display: block;
+  padding-right: 0.8em;
+  text-align: right;
+}
+
+.token.tab:not(:empty),
+.token.cr,
+.token.lf,
+.token.space {
+  position: relative;
+}
+
+.token.tab:not(:empty):before,
+.token.cr:before,
+.token.lf:before,
+.token.space:before {
+  color: #808080;
+  opacity: 0.6;
+  position: absolute;
+}

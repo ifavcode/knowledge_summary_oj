@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.guet.ksmvcmain.mapper.SubmissionsMapper">
+
+    <resultMap id="BaseResultMap" type="cn.guet.ksmvcmain.entity.vo.Submissions">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="sourceCode" column="source_code" jdbcType="INTEGER"/>
+        <result property="token" column="token" jdbcType="VARCHAR"/>
+        <result property="submitTokens" column="submit_tokens" jdbcType="VARCHAR"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="stdinFileIdsStr" column="stdin_file_ids_str" jdbcType="VARCHAR"/>
+        <result property="stdoutFileIdsStr" column="stdout_file_ids_str" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="delFlag" column="del_flag" jdbcType="CHAR"/>
+        <result property="questionCode" column="question_code" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,question_id,token,
+        submit_tokens,user_id,create_time,
+        del_flag
+    </sql>
+</mapper>

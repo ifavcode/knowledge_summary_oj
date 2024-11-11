@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.guet.ksmvcmain.mapper.ExecResultMapper">
+
+    <resultMap id="BaseResultMap" type="cn.guet.ksmvcmain.entity.vo.ExecResult">
+        <id property="submissionId" column="submission_id" jdbcType="INTEGER"/>
+        <result property="acCnt" column="ac_cnt" jdbcType="INTEGER"/>
+        <result property="teCnt" column="te_cnt" jdbcType="INTEGER"/>
+        <result property="waCnt" column="wa_cnt" jdbcType="INTEGER"/>
+        <result property="reCnt" column="re_cnt" jdbcType="INTEGER"/>
+        <result property="otherCnt" column="other_cnt" jdbcType="INTEGER"/>
+        <result property="detailsMore" column="details_more" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <association property="submissions" javaType="cn.guet.ksmvcmain.entity.vo.Submissions" resultMap="cn.guet.ksmvcmain.mapper.SubmissionsMapper.BaseResultMap">
+        </association>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        submission_id,ac_cnt,te_cnt,
+        wa_cnt,re_cnt,other_cnt,
+        update_time,details_more
+    </sql>
+
+    <select id="getLastAcUpload" resultMap="BaseResultMap">
+        SELECT *
+        FROM exec_result a
+                 LEFT JOIN submissions b ON a.submission_id = b.id
+        WHERE b.user_id = #{userId}
+          AND b.question_code = #{questionCode}
+          AND (a.te_cnt + a.wa_cnt + a.re_cnt + a.ce_cnt + a.other_cnt) = 0
+        ORDER BY a.update_time DESC
+        LIMIT 1
+    </select>
+
+    <select id="getLastUpload" resultMap="BaseResultMap">
+        SELECT *
+        FROM exec_result a
+                 LEFT JOIN submissions b ON a.submission_id = b.id
+        WHERE b.user_id = #{userId}
+          AND b.question_code = #{questionCode}
+        ORDER BY a.update_time DESC
+        LIMIT 1
+    </select>
+
+    <select id="getLastAcUploadList" resultMap="BaseResultMap">
+        SELECT *
+        FROM exec_result a
+        LEFT JOIN submissions b ON a.submission_id = b.id
+        WHERE b.user_id = #{userId}
+        AND b.question_code in
+        <foreach collection="questionCodeList" item="questionCode" open="(" separator="," close=")">
+            #{questionCode}
+        </foreach>
+        AND (a.te_cnt + a.wa_cnt + a.re_cnt + a.ce_cnt + a.other_cnt) = 0
+        GROUP BY
+        b.question_code
+        ORDER BY
+        MAX( a.update_time ) DESC
+    </select>
+
+    <select id="getLastUploadList" resultType="cn.guet.ksmvcmain.entity.vo.ExecResult" resultMap="BaseResultMap">
+        SELECT *
+        FROM exec_result a
+        LEFT JOIN submissions b ON a.submission_id = b.id
+        WHERE b.user_id = #{userId}
+        AND b.question_code in
+        <foreach collection="questionCodeList" item="questionCode" open="(" separator="," close=")">
+            #{questionCode}
+        </foreach>
+        GROUP BY
+        b.question_code
+        ORDER BY
+        MAX( a.update_time ) DESC
+    </select>
+</mapper>

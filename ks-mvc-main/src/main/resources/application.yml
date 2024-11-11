@@ -1,0 +1,98 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: @artifactId@
+  cloud:
+    nacos:
+      discovery:
+        server-addr: @nacos.serverAddr@
+        group: ${spring.profiles.active}
+    alicloud:
+      oss:
+        endpoint:
+        sts:
+          access-key: ${guet.oss.accessKeyId}
+          secret-key: ${guet.oss.accessKeySecret}
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${guet.mysql.ip}:${guet.mysql.port}/${guet.mysql.dbname}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=true
+    username: ${guet.mysql.username}
+    password: ${guet.mysql.password}
+  jackson:
+    date-format: yyyy/MM/dd HH:mm:ss
+    time-zone: GMT+8
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 100MB
+  data:
+    redis:
+      # Redis服务器地址
+      host: ${guet.redis.ip}
+      # Redis服务器端口号
+      port: ${guet.redis.port}
+      # 使用的数据库索引，默认是0
+      database: 0
+      # 连接超时时间
+      timeout: 1800000
+      # 设置密码
+      password: ${guet.redis.password}
+logging:
+  level:
+    org.example.mapper: debug
+server:
+  port: 7998
+# springdoc-openapi项目配置
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan:
+        - cn.guet.ksmvcmain.controller
+
+rocketmq:
+  # 默认的消息组
+  producer:
+    group: ojGroup
+    send-message-timeout: 6000
+  name-server: ${guet.rockermq.name-server}
+
+# knife4j的增强配置，不需要增强可以不配
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+    swagger-model-name: 实体类列表
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      logic-delete-field: delFlag
+  profiles:
+    active: dev
+
+guet:
+  oj:
+    address: ${guet.oj.address}
+  upload:
+    type: oss #oss和server 控制文件存储方式
+  oss:
+    endpoint: ${guet.oss.endpoint}
+    accessKeyId: ${guet.oss.accessKeyId}
+    accessKeySecret: ${guet.oss.accessKeySecret}
+    bucketName: ${guet.oss.bucketName}
+    bucketRegion: ${guet.oss.bucketRegion}
+    basePath: ${guet.oss.basePath}
+    domain: https://guetzjb.cn # oss配置的域名

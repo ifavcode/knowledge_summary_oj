@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.guet.ksmvcmain.mapper.QuestionFileMapper">
+
+    <resultMap id="BaseResultMap" type="cn.guet.ksmvcmain.entity.vo.QuestionFile">
+            <result property="questionId" column="question_id" jdbcType="INTEGER"/>
+            <result property="stdinFileId" column="stdin_file_id" jdbcType="INTEGER"/>
+            <result property="stdoutFileId" column="stdout_file_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        question_id,stdin_file_id,stdout_file_id
+    </sql>
+</mapper>

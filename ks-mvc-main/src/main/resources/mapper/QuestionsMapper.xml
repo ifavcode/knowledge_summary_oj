@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.guet.ksmvcmain.mapper.QuestionsMapper">
+
+    <resultMap id="BaseResultMap" type="cn.guet.ksmvcmain.entity.vo.Questions">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="title" column="title" jdbcType="VARCHAR"/>
+            <result property="titleCode" column="title_code" jdbcType="VARCHAR"/>
+            <result property="questionContent" column="question_content" jdbcType="VARCHAR"/>
+            <result property="diffLevel" column="diff_level" jdbcType="CHAR"/>
+            <result property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="delFlag" column="del_flag" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,title,title_code,
+        question_content,diff_level,user_id,
+        create_time,del_flag
+    </sql>
+</mapper>

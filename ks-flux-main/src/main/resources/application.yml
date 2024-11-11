@@ -1,0 +1,44 @@
+server:
+  port: 7999
+spring:
+  application:
+    name: @artifactId@
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: @nacos.serverAddr@
+        group: ${spring.profiles.active}
+  data:
+    redis:
+      # Redis服务器地址
+      host: ${guet.redis.ip}
+      # Redis服务器端口号
+      port: ${guet.redis.port}
+      # 使用的数据库索引，默认是0
+      database: 0
+      # 连接超时时间
+      timeout: 1800000
+      # 设置密码
+      password: ${guet.redis.password}
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${guet.mysql.ip}:${guet.mysql.port}/${guet.mysql.dbname}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=true
+    username: ${guet.mysql.username}
+    password: ${guet.mysql.password}
+  jackson:
+    date-format: yyyy/MM/dd HH:mm:ss
+    time-zone: GMT+8
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default2'
+      paths-to-match: '/**'
+      packages-to-scan:
+        - com.example.ksfluxmain.controller
