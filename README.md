@@ -80,24 +80,24 @@ ks-gateway - 网关
 
 
 
-![image-20241111172130277](.\images\image-20241111172130277.png)
+![image-20241111172130277](https://www.guetzjb.cn/assets_other/2024-11-08/image-20241111172130277.png)
 
-![image-20241111172220050](.\images\image-20241111172220050.png)
+![image-20241111172220050](https://www.guetzjb.cn/assets_other/2024-11-08/image-20241111172220050.png)
 
-![image-20241111172412191](.\images\image-20241111172412191.png)
+![image-20241111172412191](https://www.guetzjb.cn/assets_other/2024-11-08/image-20241111172412191.png)
 
-![image-20241111172458055](.\images\image-20241111172458055.png)
+![image-20241111172458055](https://www.guetzjb.cn/assets_other/2024-11-08/image-20241111172458055.png)
 
 ## OJ
 
-![image-20241111174239748](.\images\image-20241111174239748.png)
+![image-20241111174239748](https://www.guetzjb.cn/assets_other/2024-11-08/image-20241111174239748.png)
 
-![image-20241111174314788](.\images\image-20241111174314788.png)
+![image-20241111174314788](https://www.guetzjb.cn/assets_other/2024-11-08/image-20241111174314788.png)
 
-![image-20241111174325454](.\images\image-20241111174325454.png)
+![image-20241111174325454](https://www.guetzjb.cn/assets_other/2024-11-08/image-20241111174325454.png)
 
-![image-20241111174418717](.\images\image-20241111174418717.png)
+![image-20241111174418717](https://www.guetzjb.cn/assets_other/2024-11-08/image-20241111174418717.png)
 
-![image-20241111174448396](.\images\image-20241111174448396.png)
+![image-20241111174448396](https://www.guetzjb.cn/assets_other/2024-11-08/image-20241111174448396.png)
 
-![image-20241111174505393](.\images\image-20241111174505393.png)
+![image-20241111174505393](https://www.guetzjb.cn/assets_other/2024-11-08/image-20241111174505393.png)
