@@ -87,7 +87,7 @@ guet:
   oj:
     address: ${guet.oj.address}
   upload:
-    type: server #oss和server 控制文件存储方式
+    type: oss #oss和server 控制文件存储方式
   oss:
     endpoint: ${guet.oss.endpoint}
     accessKeyId: ${guet.oss.accessKeyId}
@@ -95,4 +95,4 @@ guet:
     bucketName: ${guet.oss.bucketName}
     bucketRegion: ${guet.oss.bucketRegion}
     basePath: ${guet.oss.basePath}
-    domain:  # oss配置的域名
+    domain: https://guetzjb.cn # oss配置的域名
